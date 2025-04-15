@@ -79,5 +79,21 @@ namespace AUTOSALONI_MVC.Controllers
             return RedirectToAction("List", "Modelli");
         }
         //DELETE
+        [HttpPost]
+        public async Task<IActionResult> Delete(Modello viewModel)
+        {
+            var modello = await dbContext.Modelli
+                .AsNoTracking()
+                //costruisco viewModel come entità separata
+                .FirstOrDefaultAsync(x => x.IdModello == viewModel.IdModello);
+            if (modello is not null)
+            {
+                dbContext.Modelli.Remove(viewModel);
+                await dbContext.SaveChangesAsync();
+            }
+            
+            return RedirectToAction("List", "Modelli");
+
+        }
     }
 }

@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<AUTOSALONI_MVC.Models.Entities.Automobile>
+<h1>Elenco Automobili</h1>
+<table class="table">
+	<thead>
+		<tr>
+		@* 	<th>IdAuto</th> *@
+			<th>Modello</th>
+			<th>Data d'acquisto</th>
+			<th>Targa</th>
+			<th>Prezzo Offerto</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var automobile in Model)
+		{
+			<tr>
+				@* <td>
+					@automobile.IdAuto
+				</td> *@
+				<td>
+					@Html.DisplayFor(Model => automobile.modello.modello)
+				</td>
+				<td>
+					@automobile.DataAcquisto
+				</td>
+				<td>
+					@automobile.Targa
+				</td>
+				<td>
+					@automobile.PrezzoOfferto
+				</td>
+				<td>
+					<a class="btn btn-primary" asp-controller="Automobili" asp-action="Edit" asp-route-id="@automobile.IdAuto">Modifica</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+

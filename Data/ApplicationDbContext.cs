@@ -11,5 +11,6 @@ namespace AUTOSALONI_MVC.Data
         }
         public DbSet<MARCHE> Marche { get; set; }
         public DbSet<Modello> Modelli { get; set; }
+        public DbSet<Automobile> Automobili { get; set; }
     }
 }

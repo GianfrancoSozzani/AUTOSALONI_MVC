@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model AUTOSALONI_MVC.Models.Entities.Automobile
+<h1>Modifica l'auto selezionata</h1>
+@if (Model is null)
+{
+    <h2>Codice non trovato</h2>
+}
+else
+{
+    <form method="post">
+        <div class="mt-3 d-none">
+            <label class="form-label">ID</label>
+            <input type="text" class="form-control" asp-for="IdAuto" readonly />
+        </div>
+        <div class="mt-3">
+            <label class="form-label">Modello</label>
+            <select class="form-select" asp-for="IdModello" asp-items="@ViewBag.ModelliList">
+                <option disabled selected>--Selezionare una Marca</option>
+            </select>
+        </div>
+        <div class="mt-3">
+            <label class="form-label">Data d'acquisto</label>
+            <input type="text" class="form-control" asp-for="DataAcquisto" required maxlength="50" />
+        </div>
+        <div class="mt-3">
+            <label class="form-label">Targa</label>
+            <input type="text" class="form-control" asp-for="Targa" required maxlength="50" />
+        </div>
+        <div class="mt-3">
+            <label class="form-label">Prezzo Offerto</label>
+            <input type="text" class="form-control" asp-for="PrezzoOfferto" required maxlength="50" />
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">Salva Modifica</button>
+            <button type="submit" class="btn btn-danger ms-2" asp-controller="Automobili" asp-action="Delete">Elimina</button>
+        </div>
+    </form>
+}
