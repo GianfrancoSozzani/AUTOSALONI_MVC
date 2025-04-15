@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model List<AUTOSALONI_MVC.Models.Entities.Modello>
+<h1>Elenco Modelli</h1>
+<table class="table">
+	<thead>
+		<tr>
+		@* 	<th>IdModello</th> *@
+			<th>Marca</th>
+			<th>Modello</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var modello in Model)
+		{
+			<tr>
+			@* 	<td>
+					@modello.IdModello
+				</td> *@
+				<td>
+					@Html.DisplayFor(Model => modello.Marca.Marca)
+				</td>
+				<td>
+					@modello.modello
+				</td>
+				<td>
+					<a class="btn btn-primary" asp-controller="Modelli" asp-action="Edit" asp-route-id="@modello.IdModello">Modifica</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
